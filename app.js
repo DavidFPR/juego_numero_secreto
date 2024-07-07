@@ -1,6 +1,6 @@
 let intentos = 1;
-var intentosMaximos = 3;
-let numeroMaximo = 10;
+var intentosMaximos = 5;
+let numeroMaximo = 20 ;
 let numeroSecreto = generarNumeroSecreto();
 
 // Agregar un evento al input para detectar cuando se presiona una tecla.
@@ -60,23 +60,25 @@ function verificarIntento() {
         intentos === 1 ? 'intento.' : 'intentos.'
       }`
     );
+    asignarTextoElemento('h1', 'Felicidades, ¡lo has logrado!');
     actualizarImagen('ganado');
     document.getElementById('reiniciar').removeAttribute('disabled');
   } else {
+    asignarTextoElemento('h1', '¿Cual será el número secreto?');
     //El usuario no acertó, pero le quedan intentos.
     if (numeroDeUsuario > numeroSecreto) {
       asignarTextoElemento(
         'p',
-        `El número secreto es <span class="intentos__maximos">menor</span>. Te quedan <span class="intentos__maximos">${
+        `¡El número secreto es <span class="intentos__maximos">menor</span>! Te quedan <span class="intentos__maximos">${
           intentosMaximos - intentos
-        }</span> intentos.`
+        }</span> ${intentosMaximos - intentos === 1 ? 'intento' : 'intentos'}.`
       );
     } else {
       asignarTextoElemento(
         'p',
-        `El número secreto es <span class="intentos__maximos">mayor</span>. Te quedan <span class="intentos__maximos">${
+        `¡El número secreto es <span class="intentos__maximos">mayor</span>! Te quedan <span class="intentos__maximos">${
           intentosMaximos - intentos
-        }</span> intentos.`
+        }</span> ${intentosMaximos - intentos === 1 ? 'intento' : 'intentos'}.`
       );
     }
     actualizarImagen('jugando');
@@ -86,8 +88,9 @@ function verificarIntento() {
     if (intentos > intentosMaximos) {
       asignarTextoElemento(
         'p',
-        `Lo siento, no has acertado. El número secreto era <span class="intentos__maximos">${numeroSecreto}</span>.`
+        `Lo siento, ¡no has acertado!  El número secreto era <span class="intentos__maximos">${numeroSecreto}</span>.`
       );
+      asignarTextoElemento('h1', 'Intentalo nuevamente :(');
       actualizarImagen('perdido');
       document.getElementById('reiniciar').removeAttribute('disabled');
       document.getElementById('botonIntentar').setAttribute('disabled', 'true');
@@ -111,10 +114,10 @@ function generarNumeroSecreto() {
 
 // Función que indica las condiciones iniciales del juego, o al reiniciarlo.
 function condicionesIniciales() {
-  asignarTextoElemento('h1', 'Juego del número secreto!');
+  asignarTextoElemento('h1', '¡Bienvenido al juego del número secreto!');
   asignarTextoElemento(
     'p',
-    `Indica un número del <span class="intentos__maximos">1</span> al <span class="intentos__maximos">${numeroMaximo}</span>. TIenes <span class="intentos__maximos">${intentosMaximos}</span> ${intentosMaximos === 1 ? 'intento' : 'intentos'}.`
+    `Indica un número del <span class="intentos__maximos">1</span> al <span class="intentos__maximos">${numeroMaximo}</span>. Tienes <span class="intentos__maximos">${intentosMaximos}</span> ${intentosMaximos === 1 ? 'intento' : 'intentos'}.`
   );
   numeroSecreto = generarNumeroSecreto();
   intentos = 1;
