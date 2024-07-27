@@ -27,8 +27,8 @@ body::before {
 }
 
 .container {
-    width: 1200px;
-    height: 600px;
+    width: 60%;
+    height: 70%;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -133,7 +133,7 @@ body::before {
 
 h1 {
     font-family: 'Chakra Petch', sans-serif;
-    font-size: 72px;
+    font-size: 4rem;
     padding-bottom: 3rem;
 }
 
@@ -154,8 +154,93 @@ button {
 }
 
 .container__imagen-persona {
-    width: 400px; /* ajusta el tamaño según sea necesario */
+    width: 40%; /* ajusta el tamaño según sea necesario */
     height: auto; /* para mantener la proporción */
     display: block; /* asegura que cada imagen tenga su propio espacio */
     margin: 0 auto; /* centrar horizontalmente */
   }
+  
+  @media (max-width:576px) {
+
+    .container {
+        height: 100%;
+        width: 100%;
+
+    }
+    .container__contenido {
+        height: auto;
+        display: flex;
+        flex-direction: column-reverse;
+    }
+
+    h1 {
+        font-size: 2.5rem;
+    }
+
+    .container__imagen-persona {
+        width: 60%;
+        height: 50;
+    }
+}
+
+@media (min-width: 577px) and (max-width: 768px) {
+    .container {
+        height: 100%;
+        width: 100%;
+
+    }
+    .container__contenido {
+        height: auto;
+        display: flex;
+        flex-direction: column-reverse;
+    }
+
+    h1 {
+        font-size: 2.5rem;
+    }
+
+    .container__imagen-persona {
+        width: 60%;
+        height: 50;
+    }
+  }
+
+  @media (min-width: 769px) and (max-width: 992px) {
+    .container {
+        height: 100%;
+        width: 100%;
+
+    }
+
+    .container__contenido {
+        height: auto;
+        width: 100%;
+        display: flex;
+        flex-direction: column-reverse;
+    }
+
+    h1 {
+        font-size: 2.5rem;
+        text-align: center;
+    }
+
+
+  }
+
+  @media (min-width: 993px) and (max-width: 1200px) {
+    .container {
+        width: 90%;
+        height: 60%;
+    }
+
+    h1 {
+        font-size: 2.5rem;
+    }
+
+    .container__imagen-persona {
+        width: 40%;
+        height: auto;
+    }
+  }
+
+  
